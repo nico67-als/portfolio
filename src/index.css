@@ -1,1 +1,51 @@
 @import 'tailwindcss';
+@import '@fontsource-variable/inter';
+
+/*
+  Design system : seules ces couleurs existent dans le projet.
+  Contrastes mesurés sur fond blanc (WCAG AA : 4,5:1 texte, 3:1 composants).
+*/
+@theme {
+  --font-sans: 'Inter Variable', ui-sans-serif, system-ui, sans-serif;
+
+  --color-*: initial;
+  --color-white: #ffffff;
+
+  /* Gris : textes et fonds */
+  --color-ink: #0f172a; /* texte principal, 17,9:1 */
+  --color-muted: #475569; /* texte secondaire, 7,6:1 */
+  --color-surface: #ffffff; /* fond de page */
+  --color-surface-alt: #f1f5f9; /* fond des sections alternées */
+  --color-border: #e2e8f0; /* séparateurs décoratifs */
+  --color-border-strong: #64748b; /* bordures des champs, 4,8:1 */
+
+  /* Dominante : liens, titres, bouton principal */
+  --color-primary: #1d4ed8; /* 6,7:1 */
+  --color-primary-hover: #1e40af; /* 8,7:1 */
+  --color-primary-soft: #dbeafe; /* fond des badges, texte primary-hover 7,2:1 */
+
+  /* Accent : appels à l'action */
+  --color-accent: #c2410c; /* 5,2:1 */
+  --color-accent-hover: #9a3412; /* 7,3:1 */
+}
+
+@layer base {
+  body {
+    @apply bg-surface font-sans text-ink antialiased;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+}
+
+@utility link {
+  @apply text-primary underline underline-offset-4 hover:text-primary-hover;
+}
