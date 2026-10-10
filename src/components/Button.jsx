@@ -1,22 +1,31 @@
 const variants = {
-  primary: 'bg-primary text-white hover:bg-primary-hover',
-  accent: 'bg-accent text-white hover:bg-accent-hover',
+  primary:
+    'border-primary bg-primary text-white hover:border-primary-hover hover:bg-primary-hover',
+  accent:
+    'border-accent bg-accent text-white hover:border-accent-hover hover:bg-accent-hover',
   outline:
-    'border-2 border-primary text-primary hover:bg-primary-soft hover:text-primary-hover',
+    'border-primary text-primary hover:bg-primary-soft hover:text-primary-hover',
+}
+
+// Hauteur totale : 48 px (md) ou 44 px (sm), bordure comprise.
+const sizes = {
+  md: 'px-5 py-2.5',
+  sm: 'px-4 py-2',
 }
 
 const base =
-  'inline-flex items-center justify-center gap-2 rounded-lg px-5 py-3 font-semibold transition-colors'
+  'inline-flex items-center justify-center gap-2 rounded-lg border-2 font-semibold transition-colors'
 
 // Rend un lien si `href` est fourni, sinon un bouton.
 function Button({
   variant = 'primary',
+  size = 'md',
   href,
   className = '',
   children,
   ...props
 }) {
-  const classes = `${base} ${variants[variant]} ${className}`
+  const classes = `${base} ${variants[variant]} ${sizes[size]} ${className}`
 
   if (href) {
     return (

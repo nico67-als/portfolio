@@ -27,15 +27,37 @@
   /* Accent : appels à l'action */
   --color-accent: #c2410c; /* 5,2:1 */
   --color-accent-hover: #9a3412; /* 7,3:1 */
+
+  --animate-fade-in: fade-in 150ms ease-out;
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+  }
 }
 
 @layer base {
+  /* Les ancres s'arrêtent sous le header fixe (64 px, puis 72 px dès 1024 px). */
+  html {
+    scroll-padding-top: --spacing(16);
+
+    @variant lg {
+      scroll-padding-top: --spacing(18);
+    }
+  }
+
+  /* Page bloquée derrière un menu ou une fiche ouverts. */
+  html:has(dialog[open]) {
+    overflow: hidden;
+  }
+
   body {
     @apply bg-surface font-sans text-ink antialiased;
   }
 
   :focus-visible {
-    outline: 2px solid var(--color-primary);
+    outline: 3px solid var(--color-primary);
     outline-offset: 2px;
   }
 
