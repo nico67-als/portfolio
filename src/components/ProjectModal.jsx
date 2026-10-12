@@ -72,12 +72,12 @@ function ProjectModal({ project, onClose }) {
             </ul>
 
             <div className="mt-8 grid gap-3 md:grid-cols-2 md:gap-4">
-              {project.details.images.map(({ src, alt }) => (
+              {project.details.images.map(({ image, alt }) => (
                 <ProjectImage
-                  key={alt}
-                  src={src}
+                  key={image}
+                  name={image}
                   alt={alt}
-                  label={alt}
+                  sizes="(min-width: 768px) 344px, 100vw"
                   className="rounded-lg border border-border"
                 />
               ))}

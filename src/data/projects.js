@@ -8,30 +8,33 @@ export const filters = [
 ]
 
 // Les projets avec `details` ouvrent une fiche ; les autres affichent leurs liens.
-// `image` : capture à ajouter dans src/assets (null = emplacement réservé).
+// `image` : nom de la capture dans public/images/projets (sans la taille ni l'extension).
 export const projects = [
   {
     id: 'nina-carducci',
     name: 'Nina Carducci',
     hook: '100/100 sur les 4 scores Lighthouse',
     tags: ['SEO', 'Performance', 'Accessibilité', 'HTML/CSS'],
-    image: null,
+    image: 'nina-carducci',
     github: 'https://github.com/nico67-als/projet-8_SEO',
     site: 'https://nico67-als.github.io/projet-8_SEO/',
     details: {
       subtitle:
         "Audit et optimisation SEO, performance et accessibilité d'un site de photographe",
       images: [
-        { src: null, alt: "Page d'accueil du site de Nina Carducci" },
         {
-          src: null,
-          alt: 'Rapport Lighthouse : 100/100 en performance, accessibilité, bonnes pratiques et SEO',
+          image: 'nina-carducci',
+          alt: "Page d'accueil du site de Nina Carducci",
+        },
+        {
+          image: 'nina-carducci-lighthouse',
+          alt: 'Rapport Lighthouse du site en ligne : 100/100 en performance, accessibilité, bonnes pratiques et SEO',
         },
       ],
       sections: [
         {
           title: 'Contexte',
-          text: "Nina Carducci, photographe à Bordeaux, avait un site lent et mal référencé : 74 en performance, 68 en accessibilité et 73 en SEO sur Lighthouse, avec une image principale qui mettait 16,2 s à s'afficher (LCP). La mission : l'optimiser sans toucher au design.",
+          text: "Nina Carducci, photographe à Bordeaux, avait un site lent et mal référencé : 74 en performance, 68 en accessibilité et 73 en SEO sur Lighthouse, avec une image principale qui mettait 16,2 s à s'afficher (LCP). La mission : l'optimiser sans toucher au design.",
         },
         {
           title: 'Objectifs',
@@ -47,7 +50,7 @@ export const projects = [
         },
         {
           title: 'Résultats et impact',
-          text: 'Les quatre catégories Lighthouse atteignent 100/100 sur le site en ligne, et le LCP passe de 16,2 s à 0,7 s. WAVE ne relève aucune erreur, et le test des résultats enrichis de Google valide deux éléments : commerce local et organisation.',
+          text: 'Les quatre catégories Lighthouse atteignent 100/100 sur le site en ligne, et le LCP passe de 16,2 s à 0,7 s. WAVE ne relève aucune erreur, et le test des résultats enrichis de Google valide deux éléments : commerce local et organisation.',
         },
         {
           title: "Perspectives d'amélioration",
@@ -61,16 +64,16 @@ export const projects = [
     name: 'Argent Bank',
     hook: 'Espace client bancaire en React et Redux',
     tags: ['React', 'Redux', 'API REST'],
-    image: null,
+    image: 'argent-bank',
     github: 'https://github.com/nico67-als/projet-10_argentbank',
     details: {
       subtitle:
         "Authentification, profil utilisateur et conception d'une API de transactions",
       images: [
-        { src: null, alt: "Page profil d'un utilisateur connecté" },
+        { image: 'argent-bank', alt: "Page profil d'un utilisateur connecté" },
         {
-          src: null,
-          alt: 'Extrait de la documentation Swagger des routes de transactions',
+          image: 'argent-bank-swagger',
+          alt: 'Les six routes conçues pour les comptes et les transactions, affichées dans Swagger UI',
         },
       ],
       sections: [
@@ -92,7 +95,7 @@ export const projects = [
         },
         {
           title: 'Résultats et impact',
-          text: 'La phase 1 est entièrement fonctionnelle, le fichier Swagger des transactions passe sans erreur dans Swagger Editor et a été validé en soutenance, et le poids des images a baissé de 80 % (220 Ko → 43 Ko).',
+          text: 'La phase 1 est entièrement fonctionnelle, le fichier Swagger des transactions passe sans erreur dans Swagger Editor et a été validé en soutenance, et le poids des images a baissé de 80 % (220 Ko → 43 Ko).',
         },
         {
           title: "Perspectives d'amélioration",
@@ -106,7 +109,7 @@ export const projects = [
     name: 'Kasa',
     hook: 'Application de location immobilière en React, avec routing et composants réutilisables',
     tags: ['React', 'React Router'],
-    image: null,
+    image: 'kasa',
     github: 'https://github.com/nico67-als/projet-7_kasa',
   },
   {
@@ -114,7 +117,7 @@ export const projects = [
     name: 'Sophie Bluel',
     hook: "Portfolio d'architecte dynamique : galerie filtrée, connexion et ajout de projets via API",
     tags: ['JavaScript', 'API REST'],
-    image: null,
+    image: 'sophie-bluel',
     github: 'https://github.com/nico67-als/projet-6_sophie-bluel',
   },
   {
@@ -122,7 +125,7 @@ export const projects = [
     name: '724 Events',
     hook: "Débogage d'un site React existant, avec cahier de recettes et tests",
     tags: ['React', 'Débogage', 'Tests'],
-    image: null,
+    image: '724-events',
     github: 'https://github.com/nico67-als/projet-9_724events',
   },
 ]

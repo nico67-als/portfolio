@@ -13,8 +13,8 @@ function ProjectCard({ project, onOpenDetails }) {
       className="flex h-full flex-col overflow-hidden transition-[box-shadow,border-color] focus-within:border-border-strong focus-within:shadow-lg hover:border-border-strong hover:shadow-lg motion-reduce:transition-none"
     >
       <ProjectImage
-        src={image}
-        label={name}
+        name={image}
+        sizes="(min-width: 1024px) 330px, (min-width: 640px) 50vw, 100vw"
         className="border-b border-border"
       />
 

@@ -1,27 +1,20 @@
-// Capture au format 16/9. Sans `src`, affiche un emplacement réservé décoratif.
-function ProjectImage({ src, alt = '', label, className = '' }) {
-  const box = `aspect-video w-full ${className}`
-
-  if (src) {
-    return (
-      <img
-        src={src}
-        alt={alt}
-        width="1280"
-        height="720"
-        loading="lazy"
-        className={`${box} object-cover`}
-      />
-    )
-  }
+// Capture 16/9 en WebP, servie en 640 ou 960 px de large selon l'écran
+// (fichiers dans public/images/projets).
+function ProjectImage({ name, alt = '', sizes, className = '' }) {
+  const base = `/images/projets/${name}`
 
   return (
-    <div
-      aria-hidden="true"
-      className={`${box} flex items-center justify-center bg-primary-soft p-4 text-center`}
-    >
-      <span className="text-lg font-semibold text-primary-hover">{label}</span>
-    </div>
+    <img
+      src={`${base}-960.webp`}
+      srcSet={`${base}-640.webp 640w, ${base}-960.webp 960w`}
+      sizes={sizes}
+      alt={alt}
+      width="960"
+      height="540"
+      loading="lazy"
+      decoding="async"
+      className={`aspect-video w-full object-cover ${className}`}
+    />
   )
 }
 

@@ -30,7 +30,7 @@ function Projects() {
     <Section
       id="projets"
       title="Projets"
-      intro="Sur le site de la photographe Nina Carducci, l’image principale mettait 16,2 s à s’afficher : je l’ai ramenée à 0,7 s et j’ai porté les quatre scores Lighthouse à 100/100."
+      intro="Sur le site de la photographe Nina Carducci, l’image principale mettait 16,2 s à s’afficher : je l’ai ramenée à 0,7 s et j’ai porté les quatre scores Lighthouse à 100/100."
     >
       <div className="flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between lg:gap-6">
         <div

@@ -61,7 +61,7 @@ export const skillGroups = [
     items: [
       {
         name: 'Performance',
-        proof: 'Nina Carducci : LCP de 16,2 s à 0,7 s',
+        proof: 'Nina Carducci : LCP de 16,2 s à 0,7 s',
         icon: LuGauge,
       },
       {
