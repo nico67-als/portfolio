@@ -30,7 +30,7 @@ function ProjectModal({ project, onClose }) {
   return (
     <dialog
       ref={dialogRef}
-      aria-labelledby="fiche-titre"
+      aria-labelledby={project ? 'fiche-titre' : undefined}
       onClose={onClose}
       className="m-0 h-dvh max-h-none w-full max-w-none overflow-y-auto overscroll-contain bg-surface p-0 text-ink backdrop:bg-ink/60 md:m-auto md:h-auto md:max-h-[90vh] md:max-w-200 md:rounded-2xl md:shadow-2xl"
     >
