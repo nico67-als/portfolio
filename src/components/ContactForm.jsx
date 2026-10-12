@@ -4,9 +4,6 @@ import { contact } from '../data/contact'
 import Button from './Button'
 import FormField from './FormField'
 
-// Identifiant du formulaire Formspree, défini dans .env.local (voir README).
-const FORMSPREE_ID = import.meta.env.VITE_FORMSPREE_ID
-
 const emptyValues = { nom: '', email: '', message: '' }
 const fieldOrder = ['nom', 'email', 'message']
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
@@ -65,9 +62,7 @@ function ContactForm() {
 
     setStatus('sending')
     try {
-      if (!FORMSPREE_ID) throw new Error('Formulaire non configuré')
-
-      const response = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
+      const response = await fetch(contact.formspree, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

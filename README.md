@@ -23,15 +23,9 @@ npm run dev
 
 ### Formulaire de contact
 
-Le formulaire envoie les messages via [Formspree](https://formspree.io). Copier `.env.example`
-en `.env.local` et renseigner l'identifiant du formulaire (la partie après `/f/` dans l'URL
-Formspree). Sur Vercel, déclarer la même variable dans les réglages du projet.
-
-```bash
-VITE_FORMSPREE_ID=xxxxxxxx
-```
-
-Sans cette variable, l'envoi échoue et le site propose l'adresse e-mail à la place.
+Le formulaire envoie les messages via [Formspree](https://formspree.io). L'adresse d'envoi
+est définie dans `src/data/contact.js`. En cas d'échec, le site propose l'adresse e-mail à la
+place.
 
 ## Scripts
 
