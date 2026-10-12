@@ -9,6 +9,7 @@ export const filters = [
 
 // Les projets avec `details` ouvrent une fiche ; les autres affichent leurs liens.
 // `image` : nom de la capture dans public/images/projets (sans la taille ni l'extension).
+// `details.video.file` : nom de la vidéo et de son aperçu dans public/videos (sans l'extension).
 export const projects = [
   {
     id: 'nina-carducci',
@@ -69,6 +70,11 @@ export const projects = [
     details: {
       subtitle:
         "Authentification, profil utilisateur et conception d'une API de transactions",
+      video: {
+        file: 'argent-bank-demo',
+        description:
+          'Démo de 47 secondes, sans son et légendée : connexion avec « Remember me », chargement du profil, modification du pseudo, navigation en restant connecté, puis déconnexion.',
+      },
       images: [
         { image: 'argent-bank', alt: "Page profil d'un utilisateur connecté" },
         {

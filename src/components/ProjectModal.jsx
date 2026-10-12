@@ -71,6 +71,31 @@ function ProjectModal({ project, onClose }) {
               ))}
             </ul>
 
+            {/* Rien n'est téléchargé avant la lecture, hormis l'image d'aperçu.
+                Vidéo sans piste son (d'où muted) : le texte est incrusté à l'image. */}
+            {project.details.video && (
+              <figure className="mt-8">
+                <video
+                  src={`/videos/${project.details.video.file}.mp4`}
+                  poster={`/videos/${project.details.video.file}-poster.webp`}
+                  width="1280"
+                  height="720"
+                  controls
+                  muted
+                  preload="none"
+                  playsInline
+                  className="aspect-video w-full rounded-lg border border-border bg-ink"
+                >
+                  <a href={`/videos/${project.details.video.file}.mp4`}>
+                    Télécharger la vidéo
+                  </a>
+                </video>
+                <figcaption className="mt-2 text-sm text-pretty text-muted">
+                  {project.details.video.description}
+                </figcaption>
+              </figure>
+            )}
+
             <div className="mt-8 grid gap-3 md:grid-cols-2 md:gap-4">
               {project.details.images.map(({ image, alt }) => (
                 <ProjectImage
