@@ -4,13 +4,13 @@ import Card from './Card'
 import ExternalLink from './ExternalLink'
 import ProjectImage from './ProjectImage'
 
-function ProjectCard({ project, onOpenDetails }) {
+function ProjectCard({ project, onOpen }) {
   const { name, hook, tags, image, github, site, details } = project
 
   return (
     <Card
       as="article"
-      className="flex h-full flex-col overflow-hidden transition-[box-shadow,border-color] focus-within:border-border-strong focus-within:shadow-lg hover:border-border-strong hover:shadow-lg motion-reduce:transition-none"
+      className="flex h-full flex-col overflow-hidden transition-shadow hover:shadow-lg"
     >
       <ProjectImage
         name={image}
@@ -29,13 +29,10 @@ function ProjectCard({ project, onOpenDetails }) {
           ))}
         </ul>
 
+        {/* Fiche détaillée si le projet en a une, sinon les liens directs */}
         <div className="mt-auto flex flex-wrap items-center gap-x-5 gap-y-2 pt-2">
           {details ? (
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={(event) => onOpenDetails(project, event.currentTarget)}
-            >
+            <Button variant="outline" size="sm" onClick={onOpen}>
               Voir le détail<span className="sr-only"> : {name}</span>
             </Button>
           ) : (

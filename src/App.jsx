@@ -17,7 +17,7 @@ function App() {
         Aller au contenu
       </a>
       <Header />
-      <main id="contenu" tabIndex={-1} className="focus:outline-none">
+      <main id="contenu">
         <Hero />
         <About />
         <Skills />

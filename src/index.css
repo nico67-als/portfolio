@@ -38,7 +38,7 @@
 }
 
 @layer base {
-  /* Les ancres s'arrêtent sous le header fixe (64 px, puis 72 px dès 1024 px). */
+  /* Les ancres s'arrêtent sous le header (64 px, puis 72 px dès 1024 px) */
   html {
     scroll-padding-top: --spacing(16);
 
@@ -47,7 +47,7 @@
     }
   }
 
-  /* Page bloquée derrière un menu ou une fiche ouverts. */
+  /* La page ne défile plus derrière la fiche ouverte */
   html:has(dialog[open]) {
     overflow: hidden;
   }

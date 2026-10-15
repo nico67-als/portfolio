@@ -7,6 +7,8 @@ Site en ligne : https://nicolas-grasser.vercel.app
 
 ## Stack
 
+Approche **full-code** : tout le site est écrit à la main, sans constructeur de site ni thème.
+
 - React 19, Vite
 - Tailwind CSS v4, React Icons
 - ESLint (avec `eslint-plugin-jsx-a11y` pour l'accessibilité), Prettier
@@ -41,9 +43,9 @@ place.
 
 ```
 src/
-├── assets/      images et icônes
 ├── components/  composants réutilisables
 ├── data/        contenus (projets, compétences, parcours)
-├── hooks/       section visible, défilement, fenêtres modales
 └── sections/    sections de la page
+
+public/          captures des projets, vidéo, favicons, robots.txt, sitemap.xml
 ```

@@ -1,22 +1,22 @@
-import { useRef, useState } from 'react'
+import { useState } from 'react'
 import { LuCheck, LuCircleAlert } from 'react-icons/lu'
 import { contact } from '../data/contact'
 import Button from './Button'
 import FormField from './FormField'
 
 const emptyValues = { nom: '', email: '', message: '' }
-const fieldOrder = ['nom', 'email', 'message']
-const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
-function validate(field, value) {
-  const text = value.trim()
-
-  if (field === 'nom' && !text) return 'Indiquez votre nom'
-  if (field === 'email' && !text) return 'Indiquez votre adresse e-mail'
-  if (field === 'email' && !emailPattern.test(text))
-    return 'Saisissez une adresse e-mail valide'
-  if (field === 'message' && !text) return 'Écrivez votre message'
-  return ''
+// Renvoie un message d'erreur pour chaque champ mal rempli.
+function validate(values) {
+  const errors = {}
+  if (!values.nom.trim()) errors.nom = 'Indiquez votre nom'
+  if (!values.email.trim()) {
+    errors.email = 'Indiquez votre adresse e-mail'
+  } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(values.email.trim())) {
+    errors.email = 'Saisissez une adresse e-mail valide'
+  }
+  if (!values.message.trim()) errors.message = 'Écrivez votre message'
+  return errors
 }
 
 const notice =
@@ -25,41 +25,21 @@ const notice =
 function ContactForm() {
   const [values, setValues] = useState(emptyValues)
   const [errors, setErrors] = useState({})
-  const [checked, setChecked] = useState(false)
+  // idle, sending, success ou error
   const [status, setStatus] = useState('idle')
-  const formRef = useRef(null)
 
   function handleChange(event) {
-    const { name, value } = event.target
-    setValues((current) => ({ ...current, [name]: value }))
-    // Une erreur disparaît dès que le champ est corrigé.
-    if (errors[name]) {
-      setErrors((current) => ({ ...current, [name]: validate(name, value) }))
-    }
-  }
-
-  // Après une première tentative d'envoi, chaque champ est vérifié à la sortie.
-  function handleBlur(event) {
-    if (!checked) return
-    const { name, value } = event.target
-    setErrors((current) => ({ ...current, [name]: validate(name, value) }))
+    setValues({ ...values, [event.target.name]: event.target.value })
   }
 
   async function handleSubmit(event) {
     event.preventDefault()
-    setChecked(true)
 
-    const nextErrors = Object.fromEntries(
-      fieldOrder.map((field) => [field, validate(field, values[field])]),
-    )
-    setErrors(nextErrors)
+    const newErrors = validate(values)
+    setErrors(newErrors)
+    if (Object.keys(newErrors).length > 0) return
 
-    const firstInvalid = fieldOrder.find((field) => nextErrors[field])
-    if (firstInvalid) {
-      formRef.current.elements[firstInvalid].focus()
-      return
-    }
-
+    // Envoi du message à Formspree, qui me le transfère par e-mail
     setStatus('sending')
     try {
       const response = await fetch(contact.formspree, {
@@ -70,25 +50,17 @@ function ContactForm() {
         },
         body: JSON.stringify(values),
       })
-      if (!response.ok) throw new Error(`Réponse ${response.status}`)
+      if (!response.ok) throw new Error('Envoi refusé')
 
       setValues(emptyValues)
-      setChecked(false)
       setStatus('success')
     } catch {
       setStatus('error')
     }
   }
 
-  const sending = status === 'sending'
-
   return (
-    <form
-      ref={formRef}
-      noValidate
-      onSubmit={handleSubmit}
-      className="flex flex-col gap-5"
-    >
+    <form noValidate onSubmit={handleSubmit} className="flex flex-col gap-5">
       <div className="grid gap-5 sm:grid-cols-2">
         <FormField
           id="nom"
@@ -97,7 +69,6 @@ function ContactForm() {
           value={values.nom}
           error={errors.nom}
           onChange={handleChange}
-          onBlur={handleBlur}
         />
         <FormField
           id="email"
@@ -107,7 +78,6 @@ function ContactForm() {
           value={values.email}
           error={errors.email}
           onChange={handleChange}
-          onBlur={handleBlur}
         />
       </div>
       <FormField
@@ -117,37 +87,29 @@ function ContactForm() {
         value={values.message}
         error={errors.message}
         onChange={handleChange}
-        onBlur={handleBlur}
       />
 
       <div className="flex flex-col gap-3 lg:flex-row lg:items-center lg:gap-5">
         <Button
           type="submit"
-          disabled={sending}
+          disabled={status === 'sending'}
           className="disabled:opacity-70 lg:px-8"
         >
-          {sending ? 'Envoi…' : 'Envoyer'}
+          {status === 'sending' ? 'Envoi…' : 'Envoyer'}
         </Button>
         <p className="text-sm text-muted">
           Vos données servent uniquement à vous répondre.
         </p>
       </div>
 
-      {/* Zones présentes dès le départ pour que les lecteurs d'écran annoncent le message. */}
+      {/* Zone lue par les lecteurs d'écran quand son contenu change */}
       <div role="status">
         {status === 'success' && (
           <p className={notice}>
-            <span
-              aria-hidden="true"
-              className="flex size-6 shrink-0 items-center justify-center rounded-full bg-ink text-white"
-            >
-              <LuCheck className="size-4" />
-            </span>
+            <LuCheck aria-hidden="true" className="size-6 shrink-0" />
             Merci, votre message est bien parti. Je vous réponds au plus vite.
           </p>
         )}
-      </div>
-      <div role="alert">
         {status === 'error' && (
           <p className={`${notice} border-dashed`}>
             <LuCircleAlert aria-hidden="true" className="size-6 shrink-0" />

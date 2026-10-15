@@ -30,7 +30,7 @@ export const skillGroups = [
       {
         name: 'JavaScript',
         proof:
-          "Sophie Bluel : galerie filtrée, connexion et ajout de projets via l'API",
+          'Sophie Bluel : galerie filtrée, connexion et ajout de projets via l’API',
         icon: SiJavascript,
       },
       {
@@ -110,7 +110,7 @@ export const skillGroups = [
       {
         name: 'Rigueur',
         proof:
-          "Armée de l'air ; chaque optimisation de Nina Carducci mesurée avant et après",
+          'Armée de l’air ; chaque optimisation de Nina Carducci mesurée avant et après',
       },
       {
         name: 'Adaptabilité',

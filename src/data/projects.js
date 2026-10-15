@@ -7,9 +7,8 @@ export const filters = [
   'Accessibilité',
 ]
 
-// Les projets avec `details` ouvrent une fiche ; les autres affichent leurs liens.
-// `image` : nom de la capture dans public/images/projets (sans la taille ni l'extension).
-// `details.video.file` : nom de la vidéo et de son aperçu dans public/videos (sans l'extension).
+// image : nom de la capture dans public/images/projets
+// details : contenu de la fiche détaillée (projets principaux)
 export const projects = [
   {
     id: 'nina-carducci',
@@ -21,11 +20,11 @@ export const projects = [
     site: 'https://nico67-als.github.io/projet-8_SEO/',
     details: {
       subtitle:
-        "Audit et optimisation SEO, performance et accessibilité d'un site de photographe",
+        'Audit et optimisation SEO, performance et accessibilité d’un site de photographe',
       images: [
         {
           image: 'nina-carducci',
-          alt: "Page d'accueil du site de Nina Carducci",
+          alt: 'Page d’accueil du site de Nina Carducci',
         },
         {
           image: 'nina-carducci-lighthouse',
@@ -35,7 +34,7 @@ export const projects = [
       sections: [
         {
           title: 'Contexte',
-          text: "Nina Carducci, photographe à Bordeaux, avait un site lent et mal référencé : 74 en performance, 68 en accessibilité et 73 en SEO sur Lighthouse, avec une image principale qui mettait 16,2 s à s'afficher (LCP). La mission : l'optimiser sans toucher au design.",
+          text: 'Nina Carducci, photographe à Bordeaux, avait un site lent et mal référencé : 74 en performance, 68 en accessibilité et 73 en SEO sur Lighthouse, avec une image principale qui mettait 16,2 s à s’afficher (LCP). La mission : l’optimiser sans toucher au design.',
         },
         {
           title: 'Objectifs',
@@ -47,14 +46,14 @@ export const projects = [
         },
         {
           title: 'Compétences développées',
-          text: "J'ai mené l'audit, puis priorisé les corrections par impact : images en WebP redimensionnées et chargées en différé, HTML sémantique, données structurées pour le référencement local. J'ai aussi corrigé un contraste de 2,12:1 en le passant à 9,87:1.",
+          text: 'J’ai mené l’audit, puis priorisé les corrections par impact : images en WebP redimensionnées et chargées en différé, HTML sémantique, données structurées pour le référencement local. J’ai aussi corrigé un contraste de 2,12:1 en le passant à 9,87:1.',
         },
         {
           title: 'Résultats et impact',
           text: 'Les quatre catégories Lighthouse atteignent 100/100 sur le site en ligne, et le LCP passe de 16,2 s à 0,7 s. WAVE ne relève aucune erreur, et le test des résultats enrichis de Google valide deux éléments : commerce local et organisation.',
         },
         {
-          title: "Perspectives d'amélioration",
+          title: 'Perspectives d’amélioration',
           text: 'Supprimer le CSS et le JS Bootstrap inutilisés, remplacer le plugin jQuery de la galerie, et créer une image de partage au format 1200×630.',
         },
       ],
@@ -69,14 +68,14 @@ export const projects = [
     github: 'https://github.com/nico67-als/projet-10_argentbank',
     details: {
       subtitle:
-        "Authentification, profil utilisateur et conception d'une API de transactions",
+        'Authentification, profil utilisateur et conception d’une API de transactions',
       video: {
         file: 'argent-bank-demo',
         description:
           'Démo de 47 secondes, sans son et légendée : connexion avec « Remember me », chargement du profil, modification du pseudo, navigation en restant connecté, puis déconnexion.',
       },
       images: [
-        { image: 'argent-bank', alt: "Page profil d'un utilisateur connecté" },
+        { image: 'argent-bank', alt: 'Page profil d’un utilisateur connecté' },
         {
           image: 'argent-bank-swagger',
           alt: 'Les six routes conçues pour les comptes et les transactions, affichées dans Swagger UI',
@@ -85,11 +84,11 @@ export const projects = [
       sections: [
         {
           title: 'Contexte',
-          text: "Argent Bank, une banque en ligne, lance son application. Le projet avait deux phases : l'authentification et le profil, puis une proposition d'API pour les transactions.",
+          text: 'Argent Bank, une banque en ligne, lance son application. Le projet avait deux phases : l’authentification et le profil, puis une proposition d’API pour les transactions.',
         },
         {
           title: 'Objectifs',
-          text: "Connecter le front à une API existante, protéger les pages privées, permettre de modifier le pseudo et centraliser l'état avec Redux.",
+          text: 'Connecter le front à une API existante, protéger les pages privées, permettre de modifier le pseudo et centraliser l’état avec Redux.',
         },
         {
           title: 'Stack technique',
@@ -97,14 +96,14 @@ export const projects = [
         },
         {
           title: 'Compétences développées',
-          text: "J'ai découpé le store en deux slices, la session et le profil, parce qu'ils n'ont pas le même cycle de vie. J'ai géré les appels asynchrones avec des thunks, le « Remember me » (localStorage ou sessionStorage) et la déconnexion sur une réponse 401. J'ai ensuite conçu six routes REST à partir de la maquette, en choisissant PATCH plutôt que PUT pour ne modifier qu'une partie d'une transaction. J'ai aussi proposé deux ajouts au-delà de la demande : un filtre par mois sur la même route, et une route qui liste les catégories.",
+          text: 'J’ai découpé le store en deux slices, la session et le profil, parce qu’ils n’ont pas le même cycle de vie. J’ai géré les appels asynchrones avec des thunks, le « Remember me » (localStorage ou sessionStorage) et la déconnexion sur une réponse 401. J’ai ensuite conçu six routes REST à partir de la maquette, en choisissant PATCH plutôt que PUT pour ne modifier qu’une partie d’une transaction. J’ai aussi proposé deux ajouts au-delà de la demande : un filtre par mois sur la même route, et une route qui liste les catégories.',
         },
         {
           title: 'Résultats et impact',
           text: 'La phase 1 est entièrement fonctionnelle, le fichier Swagger des transactions passe sans erreur dans Swagger Editor et a été validé en soutenance, et le poids des images a baissé de 80 % (220 Ko → 43 Ko).',
         },
         {
-          title: "Perspectives d'amélioration",
+          title: 'Perspectives d’amélioration',
           text: 'Afficher un message clair si le serveur est injoignable, remplacer Font Awesome par des icônes SVG, et implémenter les transactions côté front.',
         },
       ],
@@ -121,7 +120,7 @@ export const projects = [
   {
     id: 'sophie-bluel',
     name: 'Sophie Bluel',
-    hook: "Portfolio d'architecte dynamique : galerie filtrée, connexion et ajout de projets via API",
+    hook: 'Portfolio d’architecte dynamique : galerie filtrée, connexion et ajout de projets via API',
     tags: ['JavaScript', 'API REST'],
     image: 'sophie-bluel',
     github: 'https://github.com/nico67-als/projet-6_sophie-bluel',
@@ -129,7 +128,7 @@ export const projects = [
   {
     id: '724-events',
     name: '724 Events',
-    hook: "Débogage d'un site React existant, avec cahier de recettes et tests",
+    hook: 'Débogage d’un site React existant, avec cahier de recettes et tests',
     tags: ['React', 'Débogage', 'Tests'],
     image: '724-events',
     github: 'https://github.com/nico67-als/projet-9_724events',
