@@ -3,7 +3,7 @@ import Section from '../components/Section'
 function About() {
   return (
     <Section id="a-propos" title="À propos">
-      <div className="max-w-160 space-y-4 leading-relaxed text-pretty">
+      <div className="space-y-4 leading-relaxed text-pretty">
         <p className="text-lg leading-normal font-medium">
           Je suis Nicolas Grasser, développeur front-end React, avec un goût
           particulier pour les sites rapides, accessibles et bien référencés.

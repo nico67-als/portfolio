@@ -3,7 +3,6 @@ import { LuMenu, LuX } from 'react-icons/lu'
 import { sections } from '../data/navigation'
 
 function Header() {
-  // Menu ouvert ou fermé (sous 1024 px seulement)
   const [open, setOpen] = useState(false)
 
   return (
