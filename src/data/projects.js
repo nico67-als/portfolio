@@ -1,7 +1,6 @@
 export const filters = [
   'Tous',
   'React',
-  'JavaScript',
   'API REST',
   'Accessibilité',
 ]
