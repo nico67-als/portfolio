@@ -17,8 +17,7 @@ function Projects() {
   return (
     <Section
       id="projets"
-      title="Projets"
-      intro="Sur le site de la photographe Nina Carducci, l’image principale mettait 16,2 s à s’afficher : je l’ai ramenée à 0,7 s et j’ai porté les quatre scores Lighthouse à 100/100."
+      title="Projets"      
     >
       <div className="flex flex-wrap gap-2">
         {filters.map((label) => (

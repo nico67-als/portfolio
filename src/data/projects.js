@@ -3,7 +3,6 @@ export const filters = [
   'React',
   'JavaScript',
   'API REST',
-  'SEO',
   'Accessibilité',
 ]
 
@@ -108,29 +107,5 @@ export const projects = [
         },
       ],
     },
-  },
-  {
-    id: 'kasa',
-    name: 'Kasa',
-    hook: 'Application de location immobilière en React, avec routing et composants réutilisables',
-    tags: ['React', 'React Router'],
-    image: 'kasa',
-    github: 'https://github.com/nico67-als/projet-7_kasa',
-  },
-  {
-    id: 'sophie-bluel',
-    name: 'Sophie Bluel',
-    hook: 'Portfolio d’architecte dynamique : galerie filtrée, connexion et ajout de projets via API',
-    tags: ['JavaScript', 'API REST'],
-    image: 'sophie-bluel',
-    github: 'https://github.com/nico67-als/projet-6_sophie-bluel',
-  },
-  {
-    id: '724-events',
-    name: '724 Events',
-    hook: 'Débogage d’un site React existant, avec cahier de recettes et tests',
-    tags: ['React', 'Débogage', 'Tests'],
-    image: '724-events',
-    github: 'https://github.com/nico67-als/projet-9_724events',
   },
 ]
